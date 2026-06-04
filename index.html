@@ -292,8 +292,10 @@
             </div>
 
             <div class="contact-card-container">
-                <!-- NATIVE NETLIFY INTERCEPTION ATTRIBUTES EMBEDDED -->
                 <form class="developer-form" name="contact" data-netlify="true">
+                    <!-- CRITICAL FIX: Hidden tag explicitly injected for deployment scanning -->
+                    <input type="hidden" name="form-name" value="contact">
+
                     <div class="form-row two-col">
                         <div class="input-group">
                             <label for="firstName" class="form-label font-mono">First Name <span class="required">*</span></label>
@@ -342,9 +344,9 @@
 
     </main>
 
-    <header class="footer-area font-mono">
+    <footer class="footer-area font-mono">
         &copy; 2026 Ramar M. All Rights Reserved. Tracked via production-ready UI frameworks.
-    </header>
+    </footer>
 
     <script src="script.js"></script>
 </body>

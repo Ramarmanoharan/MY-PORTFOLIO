@@ -153,7 +153,7 @@
             </div>
             <div class="projects-grid-three-col">
                  
-                <a href="https://github.com/Ramarmanoharan/ai-resume-analyzer" target="_blank" class="project-clickable-card">
+                <a href="https://github.com/Ramarmanoharan/resume-analyzer" target="_blank" class="project-clickable-card">
                     <div>
                         <div class="project-image-wrapper">
                             <img src="Gemini_Generated_Image_l3uqdpl3uqdpl3uq.png" alt="AI Resume Analyzer Screenshot" class="project-card-image">
@@ -174,7 +174,7 @@
                     </div>
                 </a>
 
-                <a href="https://github.com/Ramarmanoharan/blockchain-voting-system-" target="_blank" class="project-clickable-card">
+                <a href="https://github.com/Ramarmanoharan/blockchain-voting" target="_blank" class="project-clickable-card">
                     <div>
                         <div class="project-image-wrapper">
                             <img src="Screenshot 2026-06-01 233249.png" alt="Blockchain Voting Platform Screenshot">
@@ -195,24 +195,24 @@
                     </div>
                 </a>
 
-                <a href="https://github.com/Ramarmanoharan/Smart-Recruitment-ATS-Platform" target="_blank" class="project-clickable-card">
+                <a href="https://github.com/Ramarmanoharan/ecommerce-chatbot" target="_blank" class="project-clickable-card">
                     <div>
                         <div class="project-image-wrapper">
-                            <img src="/ChatGPT Image Jun 2, 2026, 09_41_28 PM.png" alt="AI Resume Analyzer Screenshot" class="project-card-image">
+                            <img src="Screenshot 2026-06-01 232712.png" alt="AI Resume Analyzer Screenshot" class="project-card-image">
                         </div>
                         <div class="project-badge-row">
                             <span class="project-icon-art">💬</span>
                             <span class="github-action-badge font-mono">Repository Source ↗</span>
                         </div>
-                        <h3 class="project-title">Smart Recruitment & Applicant Tracking System</h3>
+                        <h3 class="project-title">AI Chatbot for E-Commerce Platform</h3>
                         <ul class="project-internal-bullets">
-                            <li>Developed secure authentication with role-based access for candidates and recruiters.</li>
-                            <li>Implemented job posting, application tracking, and candidate management workflows.Designed responsive dashboard pages for jobs, applications, and recruiter view.</li>
-                            <li>Added resume-job matching logic to calculate fit score and support faster hiring decisions.</li>
+                            <li>Engineered an intelligent conversational agent utilizing NLP techniques for automated, contextual customer support.</li>
+                            <li>Built scalable backend microservices to handle high-concurrency requests and optimized database lookups.</li>
+                            <li>Enhanced chatbot response accuracy and reduced backend latency by implementing efficient caching mechanisms.</li>
                         </ul>
                     </div>
                     <div class="tech-tags font-mono">
-                        <span>Java</span> <span>Spring Boot</span> <span>MySql</span> <span>REST API</span> <span>JWT</span><span>Bootstrap</span><span>JavaScript</span>
+                        <span>Python</span> <span>NLP</span> <span>Flask</span> <span>MySQL</span>
                     </div>
                 </a>
 
@@ -292,32 +292,33 @@
             </div>
 
             <div class="contact-card-container">
-                <form class="developer-form">
+                <!-- NATIVE NETLIFY INTERCEPTION ATTRIBUTES EMBEDDED -->
+                <form class="developer-form" name="contact" data-netlify="true">
                     <div class="form-row two-col">
                         <div class="input-group">
                             <label for="firstName" class="form-label font-mono">First Name <span class="required">*</span></label>
-                            <input type="text" id="firstName" required placeholder="John" class="form-input">
+                            <input type="text" id="firstName" name="firstName" required placeholder="John" class="form-input">
                         </div>
                         <div class="input-group">
                             <label for="lastName" class="form-label font-mono">Last Name <span class="required">*</span></label>
-                            <input type="text" id="lastName" required placeholder="Doe" class="form-input">
+                            <input type="text" id="lastName" name="lastName" required placeholder="Doe" class="form-input">
                         </div>
                     </div>
 
                     <div class="form-row two-col">
                         <div class="input-group">
                             <label for="email" class="form-label font-mono">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" required placeholder="john@example.com" class="form-input">
+                            <input type="email" id="email" name="email" required placeholder="john@example.com" class="form-input">
                         </div>
                         <div class="input-group">
                             <label for="subject" class="form-label font-mono">Subject</label>
-                            <input type="text" id="subject" placeholder="Job Opportunity / Engineering Outreach" class="form-input">
+                            <input type="text" id="subject" name="subject" placeholder="Job Opportunity / Engineering Outreach" class="form-input">
                         </div>
                     </div>
 
                     <div class="input-group">
                         <label for="message" class="form-label font-mono">Ask me anything or share your thoughts <span class="required">*</span></label>
-                        <textarea id="message" required rows="5" placeholder="Type your message text here..." class="form-textarea"></textarea>
+                        <textarea id="message" name="message" required rows="5" placeholder="Type your message text here..." class="form-textarea"></textarea>
                     </div>
 
                     <button type="submit" class="form-submit-btn font-mono">
@@ -341,9 +342,9 @@
 
     </main>
 
-    <footer class="footer-area font-mono">
+    <header class="footer-area font-mono">
         &copy; 2026 Ramar M. All Rights Reserved. Tracked via production-ready UI frameworks.
-    </footer>
+    </header>
 
     <script src="script.js"></script>
 </body>

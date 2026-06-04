@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- 2. LIVE SPRING BOOT REST API PIPELINE ---
-    // Intercepts the contact form submission and routes data over to port 8080
+    // --- 2. LIVE NETLIFY FORM API PIPELINE ---
+    // Intercepts submission, formats fields, and routes data directly to Netlify Cloud Storage
     const contactForm = document.querySelector('.developer-form');
     
     if (contactForm) {
@@ -36,36 +36,40 @@ document.addEventListener('DOMContentLoaded', () => {
             // Stop the standard old-school browser page refresh layout flash
             event.preventDefault(); 
 
-            // Gather values from your input IDs and map them to variables matching your Java fields
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
+            // Gather values safely from text input elements
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Formulate data structure parameters as required by x-www-form-urlencoded protocol
+            const NetlifyPayload = new URLSearchParams();
+            NetlifyPayload.append('form-name', 'contact');
+            NetlifyPayload.append('firstName', firstName);
+            NetlifyPayload.append('lastName', lastName);
+            NetlifyPayload.append('email', email);
+            NetlifyPayload.append('subject', subject);
+            NetlifyPayload.append('message', message);
 
             try {
-                // Fire an asynchronous HTTP POST request to your running Java app router portal
-                const response = await fetch('http://localhost:8080/api/contact', {
+                // Post directly back to root location endpoint where Netlify interceptors stand guard
+                const response = await fetch('/', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json' // Instructs Java to map this incoming string as a JSON template object
-                    },
-                    body: JSON.stringify(formData) // Flattens our JavaScript object key-values into a pure text string transfer payload
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: NetlifyPayload.toString()
                 });
 
                 if (response.ok) {
-                    // SUCCESS: Only ONE clean, professional thank-you notification displays now
+                    // SUCCESS: Only ONE clean thank-you popup displays
                     alert('Thank you! Your message has been sent successfully.');
-                    contactForm.reset(); // Safely clears out all text inputs on the screen template
+                    contactForm.reset(); // Safely clear out form input values
                 } else {
-                    const serverErrorText = await response.text();
-                    alert('Server Endpoint rejected payload parameters: ' + serverErrorText);
+                    alert('Oops! Netlify server cloud portal rejected submission parameters.');
                 }
             } catch (error) {
-                console.error('Connection tracing error state:', error);
-                alert('Could not bridge data pathways to the backend. Verify that your Spring Boot application is running smoothly on port 8080!');
+                console.error('Netlify post pathway pipeline failed:', error);
+                alert('Could not establish connection protocols. Verify your local internet configuration.');
             }
         });
     }

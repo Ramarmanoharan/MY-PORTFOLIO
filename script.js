@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (contactForm) {
         contactForm.addEventListener('submit', async (event) => {
-            event.preventDefault(); 
+            event.preventDefault(); // Stop page from blinking/refreshing
 
             const firstName = document.getElementById('firstName').value;
             const lastName = document.getElementById('lastName').value;
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
 
-            // Compile into structural format required by Netlify Forms parsing engine
+            // Map variables perfectly to the exact HTML name tags that Netlify is watching
             const NetlifyPayload = new URLSearchParams();
             NetlifyPayload.append('form-name', 'contact');
             NetlifyPayload.append('firstName', firstName);
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     alert('Thank you! Your message has been sent successfully.');
-                    contactForm.reset(); 
+                    contactForm.reset(); // Safely clear input fields
                 } else {
                     alert('Oops! Netlify server cloud portal rejected submission parameters.');
                 }

@@ -292,14 +292,13 @@
             </div>
 
             <div class="contact-card-container">
-                <form class="developer-form" name="contact" data-netlify="true">
-                    <!-- CRITICAL FIX: Hidden tag explicitly injected for deployment scanning -->
+                <form class="developer-form" name="contact" method="POST" data-netlify="true">
                     <input type="hidden" name="form-name" value="contact">
 
                     <div class="form-row two-col">
                         <div class="input-group">
                             <label for="firstName" class="form-label font-mono">First Name <span class="required">*</span></label>
-                            <input type="text" id="firstName" name="firstName" required placeholder="John" class="form-input">
+                            <input type="text" id="firstName" name="firstName" mercantile-field required placeholder="John" class="form-input">
                         </div>
                         <div class="input-group">
                             <label for="lastName" class="form-label font-mono">Last Name <span class="required">*</span></label>
